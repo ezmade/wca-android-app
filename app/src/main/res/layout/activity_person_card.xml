@@ -86,14 +86,39 @@
                     android:text="@string/label333OH" />
 
                 <TextView
+                    android:id="@+id/label333BLD"
+                    style="@style/record_text"
+                    android:text="@string/label333BLD" />
+
+                <TextView
                     android:id="@+id/label444"
                     style="@style/record_text"
                     android:text="@string/label444" />
 
                 <TextView
+                    android:id="@+id/label444BLD"
+                    style="@style/record_text"
+                    android:text="@string/label444BLD" />
+
+                <TextView
                     android:id="@+id/label555"
                     style="@style/record_text"
                     android:text="@string/label555" />
+
+                <TextView
+                    android:id="@+id/label555BLD"
+                    style="@style/record_text"
+                    android:text="@string/label555BLD" />
+
+                <TextView
+                    android:id="@+id/label666"
+                    style="@style/record_text"
+                    android:text="@string/label666" />
+
+                <TextView
+                    android:id="@+id/label777"
+                    style="@style/record_text"
+                    android:text="@string/label777" />
 
                 <TextView
                     android:id="@+id/labelClock"
@@ -114,6 +139,16 @@
                     android:id="@+id/labelSkewb"
                     style="@style/record_text"
                     android:text="@string/labelSkewb" />
+
+                <TextView
+                    android:id="@+id/labelSquare"
+                    style="@style/record_text"
+                    android:text="@string/labelSquare" />
+
+                <TextView
+                    android:id="@+id/labelMultiBLD"
+                    style="@style/record_text"
+                    android:text="@string/labelMultiBLD" />
 
             </LinearLayout>
         </LinearLayout>
@@ -154,14 +189,39 @@
                     android:text="43.54" />
 
                 <TextView
+                    android:id="@+id/res333BLD"
+                    style="@style/record_res"
+                    android:text="" />
+
+                <TextView
                     android:id="@+id/res444"
                     style="@style/record_res"
                     android:text="1.06.49" />
 
                 <TextView
+                    android:id="@+id/res444BLD"
+                    style="@style/record_res"
+                    android:text="" />
+
+                <TextView
                     android:id="@+id/res555"
                     style="@style/record_res"
                     android:text="2.64.28" />
+
+                <TextView
+                    android:id="@+id/res555BLD"
+                    style="@style/record_res"
+                    android:text="" />
+
+                <TextView
+                    android:id="@+id/res666"
+                    style="@style/record_res"
+                    android:text="" />
+
+                <TextView
+                    android:id="@+id/res777"
+                    style="@style/record_res"
+                    android:text="" />
 
                 <TextView
                     android:id="@+id/resClock"
@@ -182,6 +242,16 @@
                     android:id="@+id/resSkewb"
                     style="@style/record_res"
                     android:text="13.71" />
+
+                <TextView
+                    android:id="@+id/resSquare"
+                    style="@style/record_res"
+                    android:text="" />
+
+                <TextView
+                    android:id="@+id/resMultiBLD"
+                    style="@style/record_res"
+                    android:text="" />
 
             </LinearLayout>
         </LinearLayout>
