@@ -1,16 +1,18 @@
 package com.example.wca
 
-import android.graphics.BitmapFactory
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.view.View
+import android.widget.AdapterView
 import androidx.recyclerview.widget.LinearLayoutManager
-import com.example.android.rvtutorial.MyAdapter
+import com.google.gson.Gson
 import kotlinx.android.synthetic.main.activity_main.*
-import java.net.URL
+import kotlinx.android.synthetic.main.persons_list_item.*
 
 class MainActivity : AppCompatActivity() {
 
-    val persons: ArrayList<String> = ArrayList()
+    val persons: ArrayList<JSON> = ArrayList()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         val countUsers = 195679
@@ -20,16 +22,12 @@ class MainActivity : AppCompatActivity() {
         persons_list.layoutManager = LinearLayoutManager(this)
         persons_list.adapter = MyAdapter(persons, this)
 
-//        val newurl = URL(gson.fromJson(string[0], JSON::class.java).person.avatar.thumb_url)
-//        icon = BitmapFactory.decodeStream(newurl.openConnection().getInputStream())
-//        myImageView.setImageBitmap(icon)
     }
 
     fun addPersons() {
-
+        val gson = Gson()
+        for (person in getJSON()) {
+            persons.add(gson.fromJson(person, JSON::class.java))
+        }
     }
-
-
-
-
 }

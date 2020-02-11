@@ -2,10 +2,12 @@
 <resources>
     <dimen name="app_avatar_width">365dp</dimen>
     <dimen name="app_avatar_height">230dp</dimen>
+    <dimen name="app_avatar_small_width">60dp</dimen>
+    <dimen name="app_avatar_small_height">60dp</dimen>
     <dimen name="app_record_width">100dp</dimen>
     <dimen name="app_record_height">100dp</dimen>
-    <dimen name="app_default_font_size">8dp</dimen>
-    <dimen name="app_large_font_size">16dp</dimen>
+    <dimen name="app_default_font_size">8sp</dimen>
+    <dimen name="app_large_font_size">16sp</dimen>
     <dimen name="app_very_large_font_size">20sp</dimen>
     <dimen name="app_default_margin">16dp</dimen>
     <dimen name="app_small_margin">8dp</dimen>

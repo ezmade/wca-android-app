@@ -17,25 +17,23 @@
             android:layout_width="@dimen/app_avatar_width"
             android:layout_height="@dimen/app_avatar_height"
             android:layout_marginStart="@dimen/app_default_margin"
-            android:layout_marginEnd="@dimen/app_default_margin"
             android:layout_marginTop="@dimen/app_default_margin"
-            android:background="@drawable/avatar"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
+            android:layout_marginEnd="@dimen/app_default_margin"
             app:layout_constraintEnd_toEndOf="parent"
-            />
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
 
         <TextView
             android:id="@+id/name"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Anton Boyko"
             android:fontFamily="sans-serif-black"
-            android:textSize="@dimen/app_very_large_font_size"
+            android:text="Unknown"
+            android:textAlignment="center"
             android:textColor="@color/colorText"
-            app:layout_constraintTop_toBottomOf="@id/avatar"
+            android:textSize="@dimen/app_very_large_font_size"
             app:layout_constraintStart_toStartOf="parent"
-            android:textAlignment="center" />
+            app:layout_constraintTop_toBottomOf="@id/avatar" />
 
         <TextView
             android:id="@+id/records"
@@ -66,89 +64,44 @@
                 android:orientation="vertical">
 
                 <TextView
-                    android:id="@+id/label222"
+                    android:id="@+id/labelGold"
                     style="@style/record_text"
-                    android:text="@string/label222" />
+                    android:text="@string/labelGold" />
 
                 <TextView
-                    android:id="@+id/label333"
+                    android:id="@+id/labelSilver"
                     style="@style/record_text"
-                    android:text="@string/label333" />
+                    android:text="@string/labelSilver" />
 
                 <TextView
-                    android:id="@+id/label333FM"
+                    android:id="@+id/labelBronze"
                     style="@style/record_text"
-                    android:text="@string/label333FM" />
+                    android:text="@string/labelBronze" />
 
                 <TextView
-                    android:id="@+id/label333OH"
+                    android:id="@+id/labelTM"
                     style="@style/record_text"
-                    android:text="@string/label333OH" />
+                    android:text="@string/labelTM" />
 
                 <TextView
-                    android:id="@+id/label333BLD"
+                    android:id="@+id/labelNR"
                     style="@style/record_text"
-                    android:text="@string/label333BLD" />
+                    android:text="@string/labelNR" />
 
                 <TextView
-                    android:id="@+id/label444"
+                    android:id="@+id/labelCR"
                     style="@style/record_text"
-                    android:text="@string/label444" />
+                    android:text="@string/labelCR" />
 
                 <TextView
-                    android:id="@+id/label444BLD"
+                    android:id="@+id/labelWR"
                     style="@style/record_text"
-                    android:text="@string/label444BLD" />
+                    android:text="@string/labelWR" />
 
                 <TextView
-                    android:id="@+id/label555"
+                    android:id="@+id/labelTR"
                     style="@style/record_text"
-                    android:text="@string/label555" />
-
-                <TextView
-                    android:id="@+id/label555BLD"
-                    style="@style/record_text"
-                    android:text="@string/label555BLD" />
-
-                <TextView
-                    android:id="@+id/label666"
-                    style="@style/record_text"
-                    android:text="@string/label666" />
-
-                <TextView
-                    android:id="@+id/label777"
-                    style="@style/record_text"
-                    android:text="@string/label777" />
-
-                <TextView
-                    android:id="@+id/labelClock"
-                    style="@style/record_text"
-                    android:text="@string/labelClock" />
-
-                <TextView
-                    android:id="@+id/labelMinx"
-                    style="@style/record_text"
-                    android:text="@string/labelMinx" />
-
-                <TextView
-                    android:id="@+id/labelPyram"
-                    style="@style/record_text"
-                    android:text="@string/labelPyram" />
-
-                <TextView
-                    android:id="@+id/labelSkewb"
-                    style="@style/record_text"
-                    android:text="@string/labelSkewb" />
-
-                <TextView
-                    android:id="@+id/labelSquare"
-                    style="@style/record_text"
-                    android:text="@string/labelSquare" />
-
-                <TextView
-                    android:id="@+id/labelMultiBLD"
-                    style="@style/record_text"
-                    android:text="@string/labelMultiBLD" />
+                    android:text="@string/labelTR" />
 
             </LinearLayout>
         </LinearLayout>
@@ -169,89 +122,38 @@
                 android:orientation="vertical">
 
                 <TextView
-                    android:id="@+id/res222"
-                    style="@style/record_res"
-                    android:text="6.73" />
+                    android:id="@+id/resGold"
+                    style="@style/record_res" />
 
                 <TextView
-                    android:id="@+id/res333"
-                    style="@style/record_res"
-                    android:text="21.09" />
+                    android:id="@+id/resSilver"
+                    style="@style/record_res" />
 
                 <TextView
-                    android:id="@+id/res333FM"
-                    style="@style/record_res"
-                    android:text="53" />
+                    android:id="@+id/resBronze"
+                    style="@style/record_res" />
 
                 <TextView
-                    android:id="@+id/res333OH"
-                    style="@style/record_res"
-                    android:text="43.54" />
+                    android:id="@+id/resTM"
+                    style="@style/record_res" />
 
                 <TextView
-                    android:id="@+id/res333BLD"
+                    android:id="@+id/resNR"
                     style="@style/record_res"
                     android:text="" />
 
                 <TextView
-                    android:id="@+id/res444"
-                    style="@style/record_res"
-                    android:text="1.06.49" />
+                    android:id="@+id/resCR"
+                    style="@style/record_res" />
 
                 <TextView
-                    android:id="@+id/res444BLD"
+                    android:id="@+id/resWR"
                     style="@style/record_res"
                     android:text="" />
 
                 <TextView
-                    android:id="@+id/res555"
-                    style="@style/record_res"
-                    android:text="2.64.28" />
-
-                <TextView
-                    android:id="@+id/res555BLD"
-                    style="@style/record_res"
-                    android:text="" />
-
-                <TextView
-                    android:id="@+id/res666"
-                    style="@style/record_res"
-                    android:text="" />
-
-                <TextView
-                    android:id="@+id/res777"
-                    style="@style/record_res"
-                    android:text="" />
-
-                <TextView
-                    android:id="@+id/resClock"
-                    style="@style/record_res"
-                    android:text="41.78" />
-
-                <TextView
-                    android:id="@+id/resMinx"
-                    style="@style/record_res"
-                    android:text="2.20.16" />
-
-                <TextView
-                    android:id="@+id/resPyram"
-                    style="@style/record_res"
-                    android:text="9.18" />
-
-                <TextView
-                    android:id="@+id/resSkewb"
-                    style="@style/record_res"
-                    android:text="13.71" />
-
-                <TextView
-                    android:id="@+id/resSquare"
-                    style="@style/record_res"
-                    android:text="" />
-
-                <TextView
-                    android:id="@+id/resMultiBLD"
-                    style="@style/record_res"
-                    android:text="" />
+                    android:id="@+id/resTR"
+                    style="@style/record_res" />
 
             </LinearLayout>
         </LinearLayout>

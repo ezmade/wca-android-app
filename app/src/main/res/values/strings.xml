@@ -1,21 +1,12 @@
 <resources>
     <string name="app_name">WCA</string>
-    <string name="label222">2x2x2 CUBE</string>
-    <string name="label333">3x3x3 CUBE</string>
-    <string name="label444">4x4x4 CUBE</string>
-    <string name="label555">5x5x5 CUBE</string>
-    <string name="label666">6x6x6 CUBE</string>
-    <string name="label777">7x7x7 CUBE</string>
-    <string name="label333OH">3x3x3 ONE HANDED</string>
-    <string name="label333FM">3x3x3 FEWEST MOVES</string>
-    <string name="label333BLD">3x3x3 BLINDFOLDED</string>
-    <string name="label444BLD">4x4x4 BLINDFOLDED</string>
-    <string name="label555BLD">5x5x5 BLINDFOLDED</string>
-    <string name="labelMultiBLD">3x3x3 MULTI-BLIND</string>
-    <string name="labelClock">CLOCK</string>
-    <string name="labelMinx">MEGAMINX</string>
-    <string name="labelPyram">PYRAMINX</string>
-    <string name="labelSkewb">SKEWB</string>
-    <string name="labelSquare">SQUARE-1</string>
+    <string name="labelGold">Gold medals</string>
+    <string name="labelSilver">Silver medals</string>
+    <string name="labelBronze">Bronze medals</string>
+    <string name="labelTM">Total medals</string>
+    <string name="labelNR">National records</string>
+    <string name="labelCR">Continental records</string>
+    <string name="labelWR">World records</string>
+    <string name="labelTR">Total records</string>
     <string name="btnCompareLabel">Compare results</string>
 </resources>

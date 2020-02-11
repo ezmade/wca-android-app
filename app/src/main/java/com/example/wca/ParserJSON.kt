@@ -7,7 +7,9 @@ import java.net.URL
 
 data class JSON(
     val person: Person = Person(),
-    val competition_count: Int = 0
+    val competition_count: Int = 0,
+    val medals: Medals = Medals(),
+    val records: Records = Records()
 )
 
 data class Person(
@@ -17,13 +19,25 @@ data class Person(
     val avatar: Avatar = Avatar()
 )
 
-data class Avatar(
-    val thumb_url: String = ""
+data class Records(
+    val national: Int = 0,
+    val continental: Int = 0,
+    val world: Int = 0,
+    val total: Int = 0
 )
 
+data class Medals(
+    val gold: Int = 0,
+    val silver: Int = 0,
+    val bronze: Int = 0,
+    val total: Int = 0
+)
 
-fun main() {
-    val gson = Gson()
+data class Avatar(
+    val url: String = ""
+)
+
+fun getJSON(): Array<String> {
 
     val string: Array<String> = arrayOf(
   """{
@@ -362,6 +376,173 @@ fun main() {
   }""",
   """{
     "person": {
+      "wca_id": "2014BOYK01",
+      "name": "Anton Boyko",
+      "url": "https://www.worldcubeassociation.org/persons/2014BOYK01",
+      "gender": "m",
+      "country_iso2": "RU",
+      "delegate_status": null,
+      "teams": [
+
+        ],
+      "avatar": {
+        "url": "https://www.worldcubeassociation.org/uploads/user/avatar/2014BOYK01/1501332793.jpeg",
+        "thumb_url": "https://www.worldcubeassociation.org/uploads/user/avatar/2014BOYK01/1501332793_thumb.jpeg",
+        "is_default": false
+      }
+    },
+    "competition_count": 5,
+    "personal_records": {
+      "222": {
+        "single": {
+          "best": 488,
+          "world_rank": 30736,
+          "continent_rank": 8513,
+          "country_rank": 1357
+        },
+        "average": {
+          "best": 673,
+          "world_rank": 28372,
+          "continent_rank": 7719,
+          "country_rank": 1153
+        }
+      },
+      "333": {
+        "single": {
+          "best": 1846,
+          "world_rank": 45356,
+          "continent_rank": 10681,
+          "country_rank": 1698
+      },
+      "average": {
+        "best": 2109,
+        "world_rank": 41285,
+        "continent_rank": 9700,
+        "country_rank": 1503
+      }
+    },
+    "333fm": {
+      "single": {
+        "best": 53,
+        "world_rank": 5549,
+        "continent_rank": 2217,
+        "country_rank": 290
+      }
+    },
+    "333oh": {
+      "single": {
+        "best": 3675,
+        "world_rank": 22639,
+        "continent_rank": 5684,
+        "country_rank": 937
+      },
+      "average": {
+        "best": 4354,
+        "world_rank": 21086,
+        "continent_rank": 5246,
+        "country_rank": 883
+      }
+    },
+    "444": {
+      "single": {
+        "best": 8552,
+        "world_rank": 24629,
+        "continent_rank": 6593,
+        "country_rank": 969
+      },
+      "average": {
+        "best": 10649,
+        "world_rank": 23564,
+        "continent_rank": 6294,
+        "country_rank": 934
+      }
+    },
+    "555": {
+      "single": {
+        "best": 21810,
+        "world_rank": 17482,
+        "continent_rank": 5493,
+        "country_rank": 710
+      },
+      "average": {
+        "best": 26428,
+        "world_rank": 13242,
+        "continent_rank": 3792,
+        "country_rank": 514
+      }
+    },
+    "clock": {
+      "single": {
+        "best": 3490,
+        "world_rank": 6219,
+        "continent_rank": 2227,
+        "country_rank": 437
+      },
+      "average": {
+        "best": 4178,
+        "world_rank": 5090,
+        "continent_rank": 1722,
+        "country_rank": 348
+      }
+    },
+    "minx": {
+      "single": {
+        "best": 19645,
+        "world_rank": 11296,
+        "continent_rank": 3693,
+        "country_rank": 603
+      },
+      "average": {
+        "best": 22016,
+        "world_rank": 8606,
+        "continent_rank": 2567,
+        "country_rank": 446
+      }
+    },
+    "pyram": {
+      "single": {
+        "best": 686,
+        "world_rank": 14085,
+        "continent_rank": 4564,
+        "country_rank": 801
+      },
+      "average": {
+        "best": 918,
+        "world_rank": 10530,
+        "continent_rank": 3380,
+        "country_rank": 601
+      }
+    },
+    "skewb": {
+      "single": {
+        "best": 771,
+        "world_rank": 12026,
+        "continent_rank": 3772,
+        "country_rank": 584
+      },
+      "average": {
+        "best": 1371,
+        "world_rank": 15617,
+        "continent_rank": 4738,
+        "country_rank": 765
+      }
+    }
+  },
+  "medals": {
+    "gold": 0,
+    "silver": 1,
+    "bronze": 2,
+    "total": 3
+  },
+  "records": {
+    "national": 0,
+    "continental": 0,
+    "world": 0,
+    "total": 0
+  }
+  }""",
+  """{
+    "person": {
       "wca_id": "1982PETR01",
       "name": "Lars Petrus",
       "url": "https://www.worldcubeassociation.org/persons/1982PETR01",
@@ -532,11 +713,6 @@ fun main() {
       "total": 5
     }
   }""")
-
-
-
-    for (item in string) {
-        println(gson.fromJson(item, JSON::class.java).person.name)
-    }
-
+    println()
+    return string
 }
