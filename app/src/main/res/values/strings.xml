@@ -1,0 +1,14 @@
+<resources>
+    <string name="app_name">WCA</string>
+    <string name="label222">2x2x2</string>
+    <string name="label333">3x3x3</string>
+    <string name="label444">4x4x4</string>
+    <string name="label555">5x5x5</string>
+    <string name="label333OH">3x3x3 ONE HANDED</string>
+    <string name="label333FM">3x3x3 FEWEST MOVES</string>
+    <string name="labelClock">CLOCK</string>
+    <string name="labelMinx">MEGAMINX</string>
+    <string name="labelSkewb">SKEWB</string>
+    <string name="labelPyram">PYRAMINX</string>
+    <string name="btnCompareLabel">Compare results</string>
+</resources>

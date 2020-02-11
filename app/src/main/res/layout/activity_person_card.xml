@@ -1,0 +1,202 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:isScrollContainer="true"
+        tools:context=".MainActivity">
+
+        <ImageView
+            android:id="@+id/avatar"
+            android:layout_width="@dimen/app_avatar_width"
+            android:layout_height="@dimen/app_avatar_height"
+            android:layout_marginStart="@dimen/app_default_margin"
+            android:layout_marginEnd="@dimen/app_default_margin"
+            android:layout_marginTop="@dimen/app_default_margin"
+            android:background="@drawable/avatar"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            />
+
+        <TextView
+            android:id="@+id/name"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Anton Boyko"
+            android:fontFamily="sans-serif-black"
+            android:textSize="@dimen/app_very_large_font_size"
+            android:textColor="@color/colorText"
+            app:layout_constraintTop_toBottomOf="@id/avatar"
+            app:layout_constraintStart_toStartOf="parent"
+            android:textAlignment="center" />
+
+        <TextView
+            android:id="@+id/records"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Personal records"
+            android:fontFamily="sans-serif-medium"
+            android:textSize="@dimen/app_large_font_size"
+            android:layout_marginTop="@dimen/app_default_margin"
+            app:layout_constraintTop_toBottomOf="@id/name"
+            app:layout_constraintStart_toStartOf="parent"
+            android:textAlignment="center"
+            />
+
+        <LinearLayout
+            android:id="@+id/label_layout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/records">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginStart="@dimen/app_default_margin"
+                android:layout_marginTop="@dimen/app_default_margin"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/label222"
+                    style="@style/record_text"
+                    android:text="@string/label222" />
+
+                <TextView
+                    android:id="@+id/label333"
+                    style="@style/record_text"
+                    android:text="@string/label333" />
+
+                <TextView
+                    android:id="@+id/label333FM"
+                    style="@style/record_text"
+                    android:text="@string/label333FM" />
+
+                <TextView
+                    android:id="@+id/label333OH"
+                    style="@style/record_text"
+                    android:text="@string/label333OH" />
+
+                <TextView
+                    android:id="@+id/label444"
+                    style="@style/record_text"
+                    android:text="@string/label444" />
+
+                <TextView
+                    android:id="@+id/label555"
+                    style="@style/record_text"
+                    android:text="@string/label555" />
+
+                <TextView
+                    android:id="@+id/labelClock"
+                    style="@style/record_text"
+                    android:text="@string/labelClock" />
+
+                <TextView
+                    android:id="@+id/labelMinx"
+                    style="@style/record_text"
+                    android:text="@string/labelMinx" />
+
+                <TextView
+                    android:id="@+id/labelPyram"
+                    style="@style/record_text"
+                    android:text="@string/labelPyram" />
+
+                <TextView
+                    android:id="@+id/labelSkewb"
+                    style="@style/record_text"
+                    android:text="@string/labelSkewb" />
+
+            </LinearLayout>
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/res_layout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/records">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginTop="@dimen/app_default_margin"
+                android:layout_marginEnd="@dimen/app_default_margin"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/res222"
+                    style="@style/record_res"
+                    android:text="6.73" />
+
+                <TextView
+                    android:id="@+id/res333"
+                    style="@style/record_res"
+                    android:text="21.09" />
+
+                <TextView
+                    android:id="@+id/res333FM"
+                    style="@style/record_res"
+                    android:text="53" />
+
+                <TextView
+                    android:id="@+id/res333OH"
+                    style="@style/record_res"
+                    android:text="43.54" />
+
+                <TextView
+                    android:id="@+id/res444"
+                    style="@style/record_res"
+                    android:text="1.06.49" />
+
+                <TextView
+                    android:id="@+id/res555"
+                    style="@style/record_res"
+                    android:text="2.64.28" />
+
+                <TextView
+                    android:id="@+id/resClock"
+                    style="@style/record_res"
+                    android:text="41.78" />
+
+                <TextView
+                    android:id="@+id/resMinx"
+                    style="@style/record_res"
+                    android:text="2.20.16" />
+
+                <TextView
+                    android:id="@+id/resPyram"
+                    style="@style/record_res"
+                    android:text="9.18" />
+
+                <TextView
+                    android:id="@+id/resSkewb"
+                    style="@style/record_res"
+                    android:text="13.71" />
+
+            </LinearLayout>
+        </LinearLayout>
+
+        <Button
+            android:id="@+id/btn_compare"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:layout_constraintTop_toBottomOf="@id/label_layout"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            android:layout_margin="@dimen/app_default_margin"
+            android:text="@string/btnCompareLabel"
+            android:background="@color/colorBtn"
+            android:textColor="@color/colorTxtBtn"/>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</ScrollView>
