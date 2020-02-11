@@ -34,7 +34,8 @@ data class Medals(
 )
 
 data class Avatar(
-    val url: String = ""
+    val url: String = "",
+    val thumb_url: String = ""
 )
 
 fun getJSON(): Array<String> {

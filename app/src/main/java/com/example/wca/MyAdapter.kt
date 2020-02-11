@@ -24,7 +24,7 @@ class MyAdapter(val persons : ArrayList<JSON>, val context: Context)  : Recycler
 
     // Binds each person in the ArrayList to a view
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
-        val avatarURL = persons[position].person.avatar.url
+        val avatarURL = persons[position].person.avatar.thumb_url
         Picasso.with(context).load(avatarURL).into(holder.PersonAvatar)
         holder.PersonName?.text = persons[position].person.name
         holder.itemView.setOnClickListener {
