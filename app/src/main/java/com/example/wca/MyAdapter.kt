@@ -10,7 +10,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.squareup.picasso.Picasso
 import kotlinx.android.synthetic.main.persons_list_item.view.*
 
-class MyAdapter(val persons : ArrayList<JSON>, val context: Context)  : RecyclerView.Adapter<ViewHolder>() {
+class MyAdapter(val persons : ArrayList<JSON_Person>, val context: Context)  : RecyclerView.Adapter<ViewHolder>() {
 
     // Gets the number of persons in the list
     override fun getItemCount(): Int {
