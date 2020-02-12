@@ -29,16 +29,30 @@ class MyAdapter(val persons : ArrayList<JSON>, val context: Context)  : Recycler
         holder.PersonName?.text = persons[position].person.name
         holder.itemView.setOnClickListener {
             val intent = Intent(context, DetailActivity::class.java)
-            intent.putExtra("person_name", persons[position].person.name)
-            intent.putExtra("person_avatar", persons[position].person.avatar.url)
-            intent.putExtra("person_Gold", persons[position].medals.gold.toString())
-            intent.putExtra("person_Silver", persons[position].medals.silver.toString())
-            intent.putExtra("person_Bronze", persons[position].medals.bronze.toString())
-            intent.putExtra("person_TM", persons[position].medals.total.toString())
-            intent.putExtra("person_NR", persons[position].records.national.toString())
-            intent.putExtra("person_CR", persons[position].records.continental.toString())
-            intent.putExtra("person_WR", persons[position].records.world.toString())
-            intent.putExtra("person_TR", persons[position].records.total.toString())
+
+            val person_name = "person_name"
+            val person_avatar = "person_avatar"
+            val person_Gold = "person_Gold"
+            val person_Silver = "person_Silver"
+            val person_Bronze = "person_Bronze"
+            val person_TM = "person_TM"
+            val person_NR = "person_NR"
+            val person_CR = "person_CR"
+            val person_WR = "person_WR"
+            val person_TR = "person_TR"
+
+
+
+            intent.putExtra(person_name, persons[position].person.name)
+            intent.putExtra(person_avatar, persons[position].person.avatar.url)
+            intent.putExtra(person_Gold, persons[position].medals.gold.toString())
+            intent.putExtra(person_Silver, persons[position].medals.silver.toString())
+            intent.putExtra(person_Bronze, persons[position].medals.bronze.toString())
+            intent.putExtra(person_TM, persons[position].medals.total.toString())
+            intent.putExtra(person_NR, persons[position].records.national.toString())
+            intent.putExtra(person_CR, persons[position].records.continental.toString())
+            intent.putExtra(person_WR, persons[position].records.world.toString())
+            intent.putExtra(person_TR, persons[position].records.total.toString())
 
             context.startActivity(intent)
         }
