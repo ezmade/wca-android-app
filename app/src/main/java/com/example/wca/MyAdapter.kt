@@ -9,12 +9,16 @@ import android.widget.AdapterView
 import androidx.recyclerview.widget.RecyclerView
 import com.squareup.picasso.Picasso
 import kotlinx.android.synthetic.main.persons_list_item.view.*
+import retrofit2.Call
+import retrofit2.Callback
+import retrofit2.Response
 
-class MyAdapter(val persons : ArrayList<JSON_Person>, val context: Context)  : RecyclerView.Adapter<ViewHolder>() {
+class MyAdapter(val users : ArrayList<JSON_User>, val context: Context)  : RecyclerView.Adapter<ViewHolder>() {
+
 
     // Gets the number of persons in the list
     override fun getItemCount(): Int {
-        return persons.size
+        return users.size
     }
 
     // Inflates the item views
@@ -24,23 +28,46 @@ class MyAdapter(val persons : ArrayList<JSON_Person>, val context: Context)  : R
 
     // Binds each person in the ArrayList to a view
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
-        val avatarURL = persons[position].person.avatar.thumb_url
+        val avatarURL = users[position].user.avatar.thumb_url
         Picasso.with(context).load(avatarURL).into(holder.PersonAvatar)
-        holder.PersonName?.text = persons[position].person.name
+        holder.PersonName.text = users[position].user.name
         holder.itemView.setOnClickListener {
             val intent = Intent(context, DetailActivity::class.java)
-            intent.putExtra("person_name", persons[position].person.name)
-            intent.putExtra("person_avatar", persons[position].person.avatar.url)
-            intent.putExtra("person_Gold", persons[position].medals.gold.toString())
-            intent.putExtra("person_Silver", persons[position].medals.silver.toString())
-            intent.putExtra("person_Bronze", persons[position].medals.bronze.toString())
-            intent.putExtra("person_TM", persons[position].medals.total.toString())
-            intent.putExtra("person_NR", persons[position].records.national.toString())
-            intent.putExtra("person_CR", persons[position].records.continental.toString())
-            intent.putExtra("person_WR", persons[position].records.world.toString())
-            intent.putExtra("person_TR", persons[position].records.total.toString())
 
-            context.startActivity(intent)
+            val person_name = "person_name"
+            val person_avatar = "person_avatar"
+            val person_Gold = "person_Gold"
+            val person_Silver = "person_Silver"
+            val person_Bronze = "person_Bronze"
+            val person_TM = "person_TM"
+            val person_NR = "person_NR"
+            val person_CR = "person_CR"
+            val person_WR = "person_WR"
+            val person_TR = "person_TR"
+
+            var service = RetrofitService.makeRetrofitService()
+            service.getPersonInfo(users[position].user.wca_id).enqueue(object : Callback<JSON_Person> {
+                override fun onResponse(call: Call<JSON_Person>, response: Response<JSON_Person>) {
+                    if (response.body() != null) {
+                        intent.putExtra(person_name, response.body()!!.person.name)
+                        intent.putExtra(person_avatar, response.body()!!.person.avatar.url)
+                        intent.putExtra(person_Gold, response.body()!!.medals.gold.toString())
+                        intent.putExtra(person_Silver, response.body()!!.medals.silver.toString())
+                        intent.putExtra(person_Bronze, response.body()!!.medals.bronze.toString())
+                        intent.putExtra(person_TM, response.body()!!.medals.total.toString())
+                        intent.putExtra(person_NR, response.body()!!.records.national.toString())
+                        intent.putExtra(person_CR, response.body()!!.records.continental.toString())
+                        intent.putExtra(person_WR, response.body()!!.records.world.toString())
+                        intent.putExtra(person_TR, response.body()!!.records.total.toString())
+
+                        context.startActivity(intent)
+                    }
+                }
+
+                override fun onFailure(call: Call<JSON_Person>, t: Throwable) {
+                    println("Failed")
+                }
+            })
         }
 
     }

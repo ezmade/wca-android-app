@@ -1,63 +1,42 @@
 package com.example.wca
 
-import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.view.KeyEvent
-import android.view.View
-import android.widget.AdapterView
-import android.widget.Toast
 import androidx.recyclerview.widget.LinearLayoutManager
-import com.google.gson.Gson
 import kotlinx.android.synthetic.main.activity_main.*
-import kotlinx.android.synthetic.main.persons_list_item.*
-import kotlinx.coroutines.CoroutineScope
-import kotlinx.coroutines.Dispatchers
-import kotlinx.coroutines.launch
-import kotlinx.coroutines.withContext
-import retrofit2.HttpException
+import retrofit2.Call
+import retrofit2.Callback
 import retrofit2.Response
+
 
 class MainActivity : AppCompatActivity() {
 
-    val persons: ArrayList<JSON_Person> = ArrayList()
+    var users: ArrayList<JSON_User> = ArrayList()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         val countUsers = 195679
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
-        addPersons()
+        addUsers(1, 200)
         persons_list.layoutManager = LinearLayoutManager(this)
-        persons_list.adapter = MyAdapter(persons, this)
+        persons_list.adapter = MyAdapter(users, this)
 
     }
 
-    fun addPersons() {
-        val gson = Gson()
-        val service = RetrofitFactory.makeRetrofitService()
-        CoroutineScope(Dispatchers.IO).launch {
-            var responce: Response<JSON_User>
-            for (i in 1..5) {
-                responce = service.getUserInfo(i)
-                withContext(Dispatchers.Main) {
-                    try {
-                        if (responce.isSuccessful) {
-                            Toast.makeText(MainActivity(), responce.message().toString(), Toast.LENGTH_SHORT).show()
-                        } else {
-                            Toast.makeText(MainActivity(), "Error: ${responce.code()}", Toast.LENGTH_SHORT).show()
-                        }
-                    } catch (e: HttpException) {
-                        Toast.makeText(MainActivity(), "Exception ${e.message}", Toast.LENGTH_SHORT).show()
-                    } catch (e: Throwable) {
-                        Toast.makeText(MainActivity(), "Ooops: Something else went wrong", Toast.LENGTH_SHORT).show()
+    fun addUsers(begin: Int, end: Int) {
+        for (i in begin..end) {
+            val service = RetrofitService.makeRetrofitService()
+            service.getUserInfo(i).enqueue(object : Callback<JSON_User> {
+                override fun onResponse(call: Call<JSON_User>, response: Response<JSON_User>) {
+                    if (response.body() != null) {
+                        users.add(response.body()!!)
                     }
                 }
-            }
 
+                override fun onFailure(call: Call<JSON_User>, t: Throwable) {
+                    println("Failed")
+                }
+            })
         }
-
-//        for (person in getJSON()) {
-//            persons.add(gson.fromJson(person, JSON::class.java))
-//        }
     }
 }
