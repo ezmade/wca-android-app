@@ -23,7 +23,6 @@ class DetailActivity : AppCompatActivity(){
         val resWR: TextView = findViewById(R.id.resWR)
         val resTR: TextView = findViewById(R.id.resTR)
 
-        intent
         val name = intent.getStringExtra("person_name")
         val avatar_url = intent.getStringExtra("person_avatar")
         val Gold = intent.getStringExtra("person_Gold" )
