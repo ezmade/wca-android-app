@@ -5,7 +5,6 @@ import android.content.Intent
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.AdapterView
 import androidx.recyclerview.widget.RecyclerView
 import com.squareup.picasso.Picasso
 import kotlinx.android.synthetic.main.persons_list_item.view.*
@@ -13,9 +12,14 @@ import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
 
-class MyAdapter(val users : ArrayList<JSON_User>, val context: Context)  : RecyclerView.Adapter<ViewHolder>() {
+class MyAdapter( val context: Context)  : RecyclerView.Adapter<ViewHolder>() {
 
+    var users: ArrayList<JSON_User> = ArrayList()
 
+    fun setListUsers(user: JSON_User) {
+        this.users.add(user)
+        notifyDataSetChanged()
+    }
     // Gets the number of persons in the list
     override fun getItemCount(): Int {
         return users.size

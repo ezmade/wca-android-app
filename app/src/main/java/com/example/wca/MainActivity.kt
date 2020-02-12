@@ -11,26 +11,25 @@ import retrofit2.Response
 
 class MainActivity : AppCompatActivity() {
 
-    var users: ArrayList<JSON_User> = ArrayList()
+
 
     override fun onCreate(savedInstanceState: Bundle?) {
         val countUsers = 195679
+        val begin = 1
+        val end = 50
+        val service = RetrofitService.makeRetrofitService()
+        val adapter: MyAdapter = MyAdapter(this)
+
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
-        addUsers(1, 200)
         persons_list.layoutManager = LinearLayoutManager(this)
-        persons_list.adapter = MyAdapter(users, this)
+        persons_list.adapter = adapter
 
-    }
-
-    fun addUsers(begin: Int, end: Int) {
-
-            val service = RetrofitService.makeRetrofitService()
         for (i in begin..end) {
             service.getUserInfo(i).enqueue(object : Callback<JSON_User> {
                 override fun onResponse(call: Call<JSON_User>, response: Response<JSON_User>) {
                     if (response.body() != null) {
-                        users.add(response.body()!!)
+                        adapter.setListUsers(response.body()!!)
                     }
                 }
 
@@ -38,6 +37,7 @@ class MainActivity : AppCompatActivity() {
                     println("Failed")
                 }
             })
+
         }
     }
 }
