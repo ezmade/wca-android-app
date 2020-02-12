@@ -33,7 +33,6 @@ class DetailActivity : AppCompatActivity(){
         val person_WR = "person_WR"
         val person_TR = "person_TR"
 
-
         intent
         val name = intent.getStringExtra(person_name)
         val avatar_url = intent.getStringExtra(person_avatar)
@@ -46,15 +45,16 @@ class DetailActivity : AppCompatActivity(){
         val WR = intent.getStringExtra(person_WR)
         val TR = intent.getStringExtra(person_TR)
 
+
         labelName.text = name
         Picasso.with(this).load(avatar_url).into(avatar)
-        resGold.text = Gold.toString()
-        resSilver.text = Silver.toString()
-        resBronze.text = Bronze.toString()
-        resTM.text = TM.toString()
-        resNR.text = NR.toString()
-        resCR.text = CR.toString()
-        resWR.text = WR.toString()
-        resTR.text = TR.toString()
+        resGold.text = Gold?.toString()
+        resSilver.text = Silver?.toString()
+        resBronze.text = Bronze?.toString()
+        resTM.text = TM?.toString()
+        resNR.text = NR?.toString()
+        resCR.text = CR?.toString()
+        resWR.text = WR?.toString()
+        resTR.text = TR?.toString()
     }
 }

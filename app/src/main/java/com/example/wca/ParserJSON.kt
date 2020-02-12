@@ -1,12 +1,7 @@
 package com.example.wca
 
-import retrofit2.http.GET
-import retrofit2.http.Query
-import retrofit2.Response
-import retrofit2.http.Path
-
 data class User(
-    val wca_id: String? = null,
+    val wca_id: String = "",
     val name: String = "",
     val avatar: Avatar = Avatar()
 )
@@ -14,8 +9,6 @@ data class User(
 data class JSON_User(
     val user: User = User()
 )
-
-
 
 data class JSON_Person(
     val person: Person = Person(),
@@ -25,7 +18,7 @@ data class JSON_Person(
 )
 
 data class Person(
-    val wca_id: String? = null,
+    val wca_id: String = "",
     val name: String = "",
     val url: String = "",
     val avatar: Avatar = Avatar()
@@ -49,13 +42,3 @@ data class Avatar(
     val url: String = "",
     val thumb_url: String = ""
 )
-
-interface WCAApi {
-    @GET("/users/{id}")
-    suspend fun getUser(@Path("user_id") id: Int): Response<JSON_User>
-}
-
-fun getJSON_Person(wcaID: String? = null): String?  {
-    val string: String? = null
-    return string
-}
