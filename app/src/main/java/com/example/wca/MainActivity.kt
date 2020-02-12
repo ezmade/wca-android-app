@@ -24,8 +24,9 @@ class MainActivity : AppCompatActivity() {
     }
 
     fun addUsers(begin: Int, end: Int) {
-        for (i in begin..end) {
+
             val service = RetrofitService.makeRetrofitService()
+        for (i in begin..end) {
             service.getUserInfo(i).enqueue(object : Callback<JSON_User> {
                 override fun onResponse(call: Call<JSON_User>, response: Response<JSON_User>) {
                     if (response.body() != null) {
