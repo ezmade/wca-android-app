@@ -2,6 +2,7 @@ package com.example.wca
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.widget.Toast
 import androidx.recyclerview.widget.LinearLayoutManager
 import kotlinx.android.synthetic.main.activity_main.*
 import retrofit2.Call
@@ -34,7 +35,7 @@ class MainActivity : AppCompatActivity() {
                 }
 
                 override fun onFailure(call: Call<JSON_User>, t: Throwable) {
-                    println("Failed")
+                    Toast.makeText(this@MainActivity, "Connection to network was failed!", Toast.LENGTH_LONG).show()
                 }
             })
 

@@ -30,10 +30,23 @@
             android:fontFamily="sans-serif-black"
             android:text="Unknown"
             android:textAlignment="center"
-            android:textColor="@color/colorText"
+            android:textColor="@color/colorPrimaryDark"
             android:textSize="@dimen/app_very_large_font_size"
+            android:layout_marginTop="@dimen/app_small_margin"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/avatar" />
+
+        <Button
+            android:id="@+id/button_ViewProfile"
+            android:layout_width="@dimen/app_buttonView_width"
+            android:layout_height="@dimen/app_buttonView_height"
+            android:text="View profile"
+            android:textColor="@color/colorTxtBtn"
+            android:background="@color/colorBtn"
+            android:layout_marginTop="@dimen/app_small_margin"
+            app:layout_constraintTop_toBottomOf="@id/name"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent" />
 
         <TextView
             android:id="@+id/records"
@@ -43,7 +56,7 @@
             android:fontFamily="sans-serif-medium"
             android:textSize="@dimen/app_large_font_size"
             android:layout_marginTop="@dimen/app_default_margin"
-            app:layout_constraintTop_toBottomOf="@id/name"
+            app:layout_constraintTop_toBottomOf="@id/button_ViewProfile"
             app:layout_constraintStart_toStartOf="parent"
             android:textAlignment="center"
             />
@@ -60,7 +73,6 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_marginStart="@dimen/app_default_margin"
-                android:layout_marginTop="@dimen/app_default_margin"
                 android:orientation="vertical">
 
                 <TextView
@@ -117,7 +129,6 @@
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:layout_marginTop="@dimen/app_default_margin"
                 android:layout_marginEnd="@dimen/app_default_margin"
                 android:orientation="vertical">
 
