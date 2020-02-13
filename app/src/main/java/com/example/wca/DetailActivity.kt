@@ -1,11 +1,15 @@
 package com.example.wca
 
+import android.content.Intent
+import android.net.Uri
 import android.os.Bundle
 import android.widget.ImageView
-
 import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
 import com.squareup.picasso.Picasso
+import kotlinx.android.synthetic.main.activity_person_card.*
+import org.w3c.dom.Text
+
 
 class DetailActivity : AppCompatActivity(){
 
@@ -22,6 +26,10 @@ class DetailActivity : AppCompatActivity(){
         val resCR: TextView = findViewById(R.id.resCR)
         val resWR: TextView = findViewById(R.id.resWR)
         val resTR: TextView = findViewById(R.id.resTR)
+        val resComps: TextView = findViewById(R.id.resComps)
+
+
+        val person_wca_id = "person_wca_id"
         val person_name = "person_name"
         val person_avatar = "person_avatar"
         val person_Gold = "person_Gold"
@@ -32,9 +40,10 @@ class DetailActivity : AppCompatActivity(){
         val person_CR = "person_CR"
         val person_WR = "person_WR"
         val person_TR = "person_TR"
-
+        val person_Comps = "person_Comps"
 
         intent
+        val wca_id = intent.getStringExtra(person_wca_id)
         val name = intent.getStringExtra(person_name)
         val avatar_url = intent.getStringExtra(person_avatar)
         val Gold = intent.getStringExtra(person_Gold)
@@ -45,16 +54,25 @@ class DetailActivity : AppCompatActivity(){
         val CR = intent.getStringExtra(person_CR)
         val WR = intent.getStringExtra(person_WR)
         val TR = intent.getStringExtra(person_TR)
+        val Comps = intent.getStringExtra(person_Comps)
 
+        this.supportActionBar?.title = wca_id
         labelName.text = name
         Picasso.with(this).load(avatar_url).into(avatar)
-        resGold.text = Gold.toString()
-        resSilver.text = Silver.toString()
-        resBronze.text = Bronze.toString()
-        resTM.text = TM.toString()
-        resNR.text = NR.toString()
-        resCR.text = CR.toString()
-        resWR.text = WR.toString()
-        resTR.text = TR.toString()
+        resGold.text = Gold?.toString()
+        resSilver.text = Silver?.toString()
+        resBronze.text = Bronze?.toString()
+        resTM.text = TM?.toString()
+        resNR.text = NR?.toString()
+        resCR.text = CR?.toString()
+        resWR.text = WR?.toString()
+        resTR.text = TR?.toString()
+        resComps.text = Comps?.toString()
+
+        button_ViewProfile.setOnClickListener{
+            val urls: String = this.supportActionBar?.title.toString()
+            val intent = Intent(Intent.ACTION_VIEW, Uri.parse("https://www.worldcubeassociation.org/persons/" + urls))
+            startActivity(intent)
+        }
     }
 }

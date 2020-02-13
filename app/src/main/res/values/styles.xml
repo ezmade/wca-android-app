@@ -21,7 +21,7 @@
         <item name="android:layout_width">match_parent</item>
         <item name="android:layout_height">wrap_content</item>
         <item name="android:textAlignment">textEnd</item>
-        <item name="android:textColor">@color/colorRes</item>
+        <item name="android:textColor">@color/colorPrimary</item>
         <item name="android:textSize">@dimen/app_large_font_size</item>
         <item name="android:layout_marginTop">@dimen/app_default_margin</item>
     </style>

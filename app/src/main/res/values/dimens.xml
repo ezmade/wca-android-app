@@ -13,4 +13,6 @@
     <dimen name="app_small_margin">8dp</dimen>
     <dimen name="app_default_padding">16dp</dimen>
     <dimen name="app_small_padding">8dp</dimen>
+    <dimen name="app_buttonView_width">180dp</dimen>
+    <dimen name="app_buttonView_height">40dp</dimen>
 </resources>
