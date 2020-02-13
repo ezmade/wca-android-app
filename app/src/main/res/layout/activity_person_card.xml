@@ -60,7 +60,7 @@
                 android:id="@+id/labelComps"
                 style="@style/record_text"
                 android:layout_marginStart="@dimen/app_default_margin"
-                android:text="Count of competitions" />
+                android:text="@string/labelComps" />
 
             <TextView
                 android:id="@+id/resComps"
@@ -73,7 +73,7 @@
             android:id="@+id/records"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Personal records"
+            android:text="@string/labelRecords"
             android:fontFamily="sans-serif-medium"
             android:textSize="@dimen/app_large_font_size"
             android:layout_marginTop="@dimen/app_default_margin"
@@ -198,7 +198,7 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintBottom_toBottomOf="parent"
             android:layout_margin="@dimen/app_default_margin"
-            android:text="@string/btnCompareLabel"
+            android:text="@string/btnShare"
             android:background="@color/colorBtn"
             android:textColor="@color/colorTxtBtn"/>
 

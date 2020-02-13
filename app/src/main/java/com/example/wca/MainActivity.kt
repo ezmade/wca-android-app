@@ -29,7 +29,7 @@ class MainActivity : AppCompatActivity() {
         for (i in begin..end) {
             service.getUserInfo(i).enqueue(object : Callback<JSON_User> {
                 override fun onResponse(call: Call<JSON_User>, response: Response<JSON_User>) {
-                    if (response.body() != null) {
+                    if ((response.body() != null) && (response.body()!!.user.wca_id != null)) {
                         adapter.setListUsers(response.body()!!)
                     }
                 }
