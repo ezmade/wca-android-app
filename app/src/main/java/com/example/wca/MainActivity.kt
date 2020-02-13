@@ -17,7 +17,7 @@ class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         val countUsers = 195679
         val begin = 1
-        val end = 50
+        val end = countUsers
         val service = RetrofitService.makeRetrofitService()
         val adapter: MyAdapter = MyAdapter(this)
 
