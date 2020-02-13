@@ -5,6 +5,7 @@ import android.content.Intent
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.RecyclerView
 import com.squareup.picasso.Picasso
 import kotlinx.android.synthetic.main.persons_list_item.view.*
@@ -15,6 +16,7 @@ import retrofit2.Response
 class MyAdapter( val context: Context)  : RecyclerView.Adapter<ViewHolder>() {
 
     var users: ArrayList<JSON_User> = ArrayList()
+    val detailActivity: DetailActivity = DetailActivity()
 
     fun setListUsers(user: JSON_User) {
         this.users.add(user)
@@ -35,9 +37,11 @@ class MyAdapter( val context: Context)  : RecyclerView.Adapter<ViewHolder>() {
         val avatarURL = users[position].user.avatar.thumb_url
         Picasso.with(context).load(avatarURL).into(holder.PersonAvatar)
         holder.PersonName.text = users[position].user.name
+        //(detailActivity as AppCompatActivity).supportActionBar?.title = users[position].user.wca_id
         holder.itemView.setOnClickListener {
             val intent = Intent(context, DetailActivity::class.java)
 
+            val person_wca_id = "person_wca_id"
             val person_name = "person_name"
             val person_avatar = "person_avatar"
             val person_Gold = "person_Gold"
@@ -53,6 +57,7 @@ class MyAdapter( val context: Context)  : RecyclerView.Adapter<ViewHolder>() {
             service.getPersonInfo(users[position].user.wca_id).enqueue(object : Callback<JSON_Person> {
                 override fun onResponse(call: Call<JSON_Person>, response: Response<JSON_Person>) {
                     if (response.body() != null) {
+                        intent.putExtra(person_wca_id, users[position].user.wca_id)
                         intent.putExtra(person_name, response.body()!!.person.name)
                         intent.putExtra(person_avatar, response.body()!!.person.avatar.url)
                         intent.putExtra(person_Gold, response.body()!!.medals.gold.toString())
