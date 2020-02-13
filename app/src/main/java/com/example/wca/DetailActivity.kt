@@ -25,6 +25,7 @@ class DetailActivity : AppCompatActivity(){
         val resCR: TextView = findViewById(R.id.resCR)
         val resWR: TextView = findViewById(R.id.resWR)
         val resTR: TextView = findViewById(R.id.resTR)
+        
         val person_wca_id = "person_wca_id"
         val person_name = "person_name"
         val person_avatar = "person_avatar"
