@@ -41,6 +41,7 @@ class MyAdapter( val context: Context)  : RecyclerView.Adapter<ViewHolder>() {
         holder.itemView.setOnClickListener {
             val intent = Intent(context, DetailActivity::class.java)
 
+
             val person_wca_id = "person_wca_id"
             val person_name = "person_name"
             val person_avatar = "person_avatar"
