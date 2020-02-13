@@ -8,6 +8,7 @@ import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
 import com.squareup.picasso.Picasso
 import kotlinx.android.synthetic.main.activity_person_card.*
+import org.w3c.dom.Text
 
 
 class DetailActivity : AppCompatActivity(){
@@ -25,7 +26,8 @@ class DetailActivity : AppCompatActivity(){
         val resCR: TextView = findViewById(R.id.resCR)
         val resWR: TextView = findViewById(R.id.resWR)
         val resTR: TextView = findViewById(R.id.resTR)
-        
+        val resComps: TextView = findViewById(R.id.resComps)
+
 
         val person_wca_id = "person_wca_id"
         val person_name = "person_name"
@@ -38,6 +40,7 @@ class DetailActivity : AppCompatActivity(){
         val person_CR = "person_CR"
         val person_WR = "person_WR"
         val person_TR = "person_TR"
+        val person_Comps = "person_Comps"
 
         intent
         val wca_id = intent.getStringExtra(person_wca_id)
@@ -51,6 +54,7 @@ class DetailActivity : AppCompatActivity(){
         val CR = intent.getStringExtra(person_CR)
         val WR = intent.getStringExtra(person_WR)
         val TR = intent.getStringExtra(person_TR)
+        val Comps = intent.getStringExtra(person_Comps)
 
         this.supportActionBar?.title = wca_id
         labelName.text = name
@@ -63,6 +67,7 @@ class DetailActivity : AppCompatActivity(){
         resCR.text = CR?.toString()
         resWR.text = WR?.toString()
         resTR.text = TR?.toString()
+        resComps.text = Comps?.toString()
 
         button_ViewProfile.setOnClickListener{
             val urls: String = this.supportActionBar?.title.toString()

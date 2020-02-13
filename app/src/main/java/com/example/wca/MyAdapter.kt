@@ -53,6 +53,7 @@ class MyAdapter( val context: Context)  : RecyclerView.Adapter<ViewHolder>() {
             val person_CR = "person_CR"
             val person_WR = "person_WR"
             val person_TR = "person_TR"
+            val person_Comps = "person_Comps"
 
             var service = RetrofitService.makeRetrofitService()
             service.getPersonInfo(users[position].user.wca_id).enqueue(object : Callback<JSON_Person> {
@@ -69,6 +70,7 @@ class MyAdapter( val context: Context)  : RecyclerView.Adapter<ViewHolder>() {
                         intent.putExtra(person_CR, response.body()!!.records.continental.toString())
                         intent.putExtra(person_WR, response.body()!!.records.world.toString())
                         intent.putExtra(person_TR, response.body()!!.records.total.toString())
+                        intent.putExtra(person_Comps, response.body()!!.competition_count.toString())
 
                         context.startActivity(intent)
                     }

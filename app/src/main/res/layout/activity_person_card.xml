@@ -48,6 +48,27 @@
             app:layout_constraintLeft_toLeftOf="parent"
             app:layout_constraintRight_toRightOf="parent" />
 
+        <LinearLayout
+            android:id="@+id/competittions"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="horizontal"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/button_ViewProfile" >
+
+            <TextView
+                android:id="@+id/labelComps"
+                style="@style/record_text"
+                android:layout_marginStart="@dimen/app_default_margin"
+                android:text="Count of competitions" />
+
+            <TextView
+                android:id="@+id/resComps"
+                android:layout_marginEnd="@dimen/app_default_margin"
+                style="@style/record_res" />
+
+        </LinearLayout>
+
         <TextView
             android:id="@+id/records"
             android:layout_width="match_parent"
@@ -56,7 +77,7 @@
             android:fontFamily="sans-serif-medium"
             android:textSize="@dimen/app_large_font_size"
             android:layout_marginTop="@dimen/app_default_margin"
-            app:layout_constraintTop_toBottomOf="@id/button_ViewProfile"
+            app:layout_constraintTop_toBottomOf="@id/competittions"
             app:layout_constraintStart_toStartOf="parent"
             android:textAlignment="center"
             />
