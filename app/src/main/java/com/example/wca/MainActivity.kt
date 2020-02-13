@@ -4,6 +4,7 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Toast
 import androidx.recyclerview.widget.LinearLayoutManager
+import com.google.firebase.analytics.FirebaseAnalytics
 import kotlinx.android.synthetic.main.activity_main.*
 import retrofit2.Call
 import retrofit2.Callback
@@ -11,10 +12,13 @@ import retrofit2.Response
 
 
 class MainActivity : AppCompatActivity() {
+    private var mFirebaseAnalytics: FirebaseAnalytics? = null
 
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
+        // Obtain the FirebaseAnalytics instance.
+        mFirebaseAnalytics = FirebaseAnalytics.getInstance(this)
         val countUsers = 195679
         val begin = 1
         val end = 1000

@@ -52,7 +52,7 @@ class MyAdapter( val context: Context)  : RecyclerView.Adapter<ViewHolder>() {
         val person_TR = "person_TR"
         val person_Comps = "person_Comps"
 
-        holder..setOnClickListener {
+        holder.Button.setOnClickListener {
             val intent = Intent(context, DetailActivity::class.java)
 
             service.getPersonInfo(users[position].user.wca_id!!).enqueue(object : Callback<JSON_Person> {
@@ -110,4 +110,5 @@ class ViewHolder (view: View) : RecyclerView.ViewHolder(view) {
     // Holds the TextView that will add each person to
     val PersonName = view.person_name
     val PersonAvatar = view.person_avatar
+    val Button = view.btn_ChangeAct
 }

@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "794105523560",
+    "firebase_url": "https://wca-android-app.firebaseio.com",
+    "project_id": "wca-android-app",
+    "storage_bucket": "wca-android-app.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:794105523560:android:22bfb93226d728bf547add",
+        "android_client_info": {
+          "package_name": "com.example.wca"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "794105523560-03olegp8in94clebfo8t1ubsgqpd4in2.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.wca",
+            "certificate_hash": "ac6ac8b7b8cb40263def73f7e8edd0da50285111"
+          }
+        },
+        {
+          "client_id": "794105523560-kuk7krb104gfa1311hqa7p1ghk6k6sc4.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyA7tK4aa59qh2uc9bVtzL9dhGuk9PZ88gY"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "794105523560-kuk7krb104gfa1311hqa7p1ghk6k6sc4.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
