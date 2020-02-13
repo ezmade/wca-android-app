@@ -1,7 +1,7 @@
 package com.example.wca
 
 data class User(
-    val wca_id: String = "",
+    val wca_id: String? = null,
     val name: String = "",
     val avatar: Avatar = Avatar()
 )

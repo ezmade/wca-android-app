@@ -37,10 +37,10 @@
             app:layout_constraintTop_toBottomOf="@id/avatar" />
 
         <Button
-            android:id="@+id/button_ViewProfile"
+            android:id="@+id/btn_ViewProfile"
             android:layout_width="@dimen/app_buttonView_width"
             android:layout_height="@dimen/app_buttonView_height"
-            android:text="View profile"
+            android:text="@string/btnViewProfile"
             android:textColor="@color/colorTxtBtn"
             android:background="@color/colorBtn"
             android:layout_marginTop="@dimen/app_small_margin"
@@ -54,13 +54,13 @@
             android:layout_height="match_parent"
             android:orientation="horizontal"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/button_ViewProfile" >
+            app:layout_constraintTop_toBottomOf="@id/btn_ViewProfile" >
 
             <TextView
                 android:id="@+id/labelComps"
                 style="@style/record_text"
                 android:layout_marginStart="@dimen/app_default_margin"
-                android:text="Count of competitions" />
+                android:text="@string/labelComps" />
 
             <TextView
                 android:id="@+id/resComps"
@@ -73,7 +73,7 @@
             android:id="@+id/records"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Personal records"
+            android:text="@string/labelRecords"
             android:fontFamily="sans-serif-medium"
             android:textSize="@dimen/app_large_font_size"
             android:layout_marginTop="@dimen/app_default_margin"
@@ -191,14 +191,14 @@
         </LinearLayout>
 
         <Button
-            android:id="@+id/btn_compare"
+            android:id="@+id/btn_Share"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             app:layout_constraintTop_toBottomOf="@id/label_layout"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintBottom_toBottomOf="parent"
             android:layout_margin="@dimen/app_default_margin"
-            android:text="@string/btnCompareLabel"
+            android:text="@string/btnShare"
             android:background="@color/colorBtn"
             android:textColor="@color/colorTxtBtn"/>
 

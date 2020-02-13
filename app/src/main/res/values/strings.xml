@@ -8,5 +8,8 @@
     <string name="labelCR">Continental records</string>
     <string name="labelWR">World records</string>
     <string name="labelTR">Total records</string>
-    <string name="btnCompareLabel">Compare results</string>
+    <string name="btnShare">Share results</string>
+    <string name="btnViewProfile">View WCA profile</string>
+    <string name="labelRecords">Personal records</string>
+    <string name="labelComps">Count of competititons</string>
 </resources>

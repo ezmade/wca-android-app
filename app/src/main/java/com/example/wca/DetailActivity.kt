@@ -1,21 +1,53 @@
 package com.example.wca
 
+import android.R.attr
+import android.R.id
 import android.content.Intent
+import android.graphics.Bitmap
 import android.net.Uri
 import android.os.Bundle
+import android.os.Environment
 import android.widget.ImageView
 import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
+import androidx.core.content.FileProvider
+import androidx.core.graphics.drawable.toBitmap
+import com.google.firebase.analytics.FirebaseAnalytics
 import com.squareup.picasso.Picasso
 import kotlinx.android.synthetic.main.activity_person_card.*
-import org.w3c.dom.Text
+import java.io.File
+import java.io.FileOutputStream
 
 
 class DetailActivity : AppCompatActivity(){
+    private var mFirebaseAnalytics: FirebaseAnalytics? = null
+
+    private fun share(image: Bitmap?, name: String, comps: Int, id: String) {
+        val file = File(this.externalCacheDir?.path + "/image.png")
+        val shareText = "Hey there! " + name + " has already taken part at " + comps + " speedcubing competitions! Do you want to see the results? Visit the profile at https://www.worldcubeassociation.org/persons/" + id
+        FileOutputStream(file).apply {
+            image?.compress(Bitmap.CompressFormat.PNG, 100, this)
+            flush()
+            close()
+        }
+        val intent = Intent(Intent.ACTION_SEND)
+        intent.addFlags(Intent.FLAG_GRANT_READ_URI_PERMISSION)
+        intent.putExtra(Intent.EXTRA_STREAM,  FileProvider.getUriForFile(this, "com.ezmade.fileprovider", file))
+        intent.putExtra(Intent.EXTRA_TEXT, shareText)
+        intent.type = "image/*"
+        startActivity(Intent.createChooser(intent, "Share results"))
+    }
 
     override fun onCreate(savedInstanceState: Bundle?) {
+
+        // Obtain the FirebaseAnalytics instance.
+        mFirebaseAnalytics = FirebaseAnalytics.getInstance(this)
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_person_card)
+    }
+
+    override fun onStart() {
+        super.onStart()
         val labelName: TextView = findViewById<TextView>(R.id.name)
         val avatar: ImageView = findViewById(R.id.avatar)
         val resGold: TextView = findViewById(R.id.resGold)
@@ -69,10 +101,23 @@ class DetailActivity : AppCompatActivity(){
         resTR.text = TR?.toString()
         resComps.text = Comps?.toString()
 
-        button_ViewProfile.setOnClickListener{
+        btn_ViewProfile.setOnClickListener{
+            val bundle = Bundle()
+            bundle.putString(FirebaseAnalytics.Param.ITEM_ID, "btn_ViewProfile")
+            bundle.putString(FirebaseAnalytics.Param.CONTENT_TYPE, "button_view_click")
+            mFirebaseAnalytics!!.logEvent(FirebaseAnalytics.Event.SELECT_CONTENT, bundle)
             val urls: String = this.supportActionBar?.title.toString()
             val intent = Intent(Intent.ACTION_VIEW, Uri.parse("https://www.worldcubeassociation.org/persons/" + urls))
             startActivity(intent)
+        }
+
+        btn_Share.setOnClickListener{
+            val bundle = Bundle()
+            bundle.putString(FirebaseAnalytics.Param.ITEM_ID, "btn_Share")
+            bundle.putString(FirebaseAnalytics.Param.CONTENT_TYPE, "button_share_click")
+            mFirebaseAnalytics!!.logEvent(FirebaseAnalytics.Event.SELECT_CONTENT, bundle)
+
+            share(avatar.drawable.toBitmap(), name.toString(), Comps.toInt(), this.supportActionBar?.title.toString())
         }
     }
 }
