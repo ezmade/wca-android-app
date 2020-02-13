@@ -1,0 +1,206 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:isScrollContainer="true"
+        tools:context=".MainActivity">
+
+        <ImageView
+            android:id="@+id/avatar"
+            android:layout_width="@dimen/app_avatar_width"
+            android:layout_height="@dimen/app_avatar_height"
+            android:layout_marginStart="@dimen/app_default_margin"
+            android:layout_marginTop="@dimen/app_default_margin"
+            android:layout_marginEnd="@dimen/app_default_margin"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/name"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:fontFamily="sans-serif-black"
+            android:text="Unknown"
+            android:textAlignment="center"
+            android:textColor="@color/colorPrimaryDark"
+            android:textSize="@dimen/app_very_large_font_size"
+            android:layout_marginTop="@dimen/app_small_margin"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/avatar" />
+
+        <Button
+            android:id="@+id/btn_ViewProfile"
+            android:layout_width="@dimen/app_buttonView_width"
+            android:layout_height="@dimen/app_buttonView_height"
+            android:text="@string/btnViewProfile"
+            android:textColor="@color/colorTxtBtn"
+            android:background="@color/colorBtn"
+            android:layout_marginTop="@dimen/app_small_margin"
+            app:layout_constraintTop_toBottomOf="@id/name"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent" />
+
+        <LinearLayout
+            android:id="@+id/competittions"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="horizontal"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/btn_ViewProfile" >
+
+            <TextView
+                android:id="@+id/labelComps"
+                style="@style/record_text"
+                android:layout_marginStart="@dimen/app_default_margin"
+                android:text="@string/labelComps" />
+
+            <TextView
+                android:id="@+id/resComps"
+                android:layout_marginEnd="@dimen/app_default_margin"
+                style="@style/record_res" />
+
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/records"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/labelRecords"
+            android:fontFamily="sans-serif-medium"
+            android:textSize="@dimen/app_large_font_size"
+            android:layout_marginTop="@dimen/app_default_margin"
+            app:layout_constraintTop_toBottomOf="@id/competittions"
+            app:layout_constraintStart_toStartOf="parent"
+            android:textAlignment="center"
+            />
+
+        <LinearLayout
+            android:id="@+id/label_layout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/records">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginStart="@dimen/app_default_margin"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/labelGold"
+                    style="@style/record_text"
+                    android:text="@string/labelGold" />
+
+                <TextView
+                    android:id="@+id/labelSilver"
+                    style="@style/record_text"
+                    android:text="@string/labelSilver" />
+
+                <TextView
+                    android:id="@+id/labelBronze"
+                    style="@style/record_text"
+                    android:text="@string/labelBronze" />
+
+                <TextView
+                    android:id="@+id/labelTM"
+                    style="@style/record_text"
+                    android:text="@string/labelTM" />
+
+                <TextView
+                    android:id="@+id/labelNR"
+                    style="@style/record_text"
+                    android:text="@string/labelNR" />
+
+                <TextView
+                    android:id="@+id/labelCR"
+                    style="@style/record_text"
+                    android:text="@string/labelCR" />
+
+                <TextView
+                    android:id="@+id/labelWR"
+                    style="@style/record_text"
+                    android:text="@string/labelWR" />
+
+                <TextView
+                    android:id="@+id/labelTR"
+                    style="@style/record_text"
+                    android:text="@string/labelTR" />
+
+            </LinearLayout>
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/res_layout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/records">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginEnd="@dimen/app_default_margin"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/resGold"
+                    style="@style/record_res" />
+
+                <TextView
+                    android:id="@+id/resSilver"
+                    style="@style/record_res" />
+
+                <TextView
+                    android:id="@+id/resBronze"
+                    style="@style/record_res" />
+
+                <TextView
+                    android:id="@+id/resTM"
+                    style="@style/record_res" />
+
+                <TextView
+                    android:id="@+id/resNR"
+                    style="@style/record_res"
+                    android:text="" />
+
+                <TextView
+                    android:id="@+id/resCR"
+                    style="@style/record_res" />
+
+                <TextView
+                    android:id="@+id/resWR"
+                    style="@style/record_res"
+                    android:text="" />
+
+                <TextView
+                    android:id="@+id/resTR"
+                    style="@style/record_res" />
+
+            </LinearLayout>
+        </LinearLayout>
+
+        <Button
+            android:id="@+id/btn_Share"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:layout_constraintTop_toBottomOf="@id/label_layout"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            android:layout_margin="@dimen/app_default_margin"
+            android:text="@string/btnShare"
+            android:background="@color/colorBtn"
+            android:textColor="@color/colorTxtBtn"/>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</ScrollView>

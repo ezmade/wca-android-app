@@ -1,0 +1,15 @@
+<resources>
+    <string name="app_name">World Cube Association</string>
+    <string name="labelGold">Gold medals</string>
+    <string name="labelSilver">Silver medals</string>
+    <string name="labelBronze">Bronze medals</string>
+    <string name="labelTM">Total medals</string>
+    <string name="labelNR">National records</string>
+    <string name="labelCR">Continental records</string>
+    <string name="labelWR">World records</string>
+    <string name="labelTR">Total records</string>
+    <string name="btnShare">Share results</string>
+    <string name="btnViewProfile">View WCA profile</string>
+    <string name="labelRecords">Personal records</string>
+    <string name="labelComps">Count of competititons</string>
+</resources>
