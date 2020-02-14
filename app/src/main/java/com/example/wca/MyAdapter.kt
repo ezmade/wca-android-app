@@ -17,7 +17,6 @@ import retrofit2.Response
 class MyAdapter( val context: Context)  : RecyclerView.Adapter<ViewHolder>() {
 
     var users: ArrayList<JSON_User> = ArrayList()
-    val detailActivity: DetailActivity = DetailActivity()
 
     fun setListUsers(user: JSON_User) {
         this.users.add(user)
@@ -52,53 +51,56 @@ class MyAdapter( val context: Context)  : RecyclerView.Adapter<ViewHolder>() {
         val person_TR = "person_TR"
         val person_Comps = "person_Comps"
 
-        holder.Button.setOnClickListener {
+
+
+        holder.itemView.setOnClickListener {
             val intent = Intent(context, DetailActivity::class.java)
-
             service.getPersonInfo(users[position].user.wca_id!!).enqueue(object : Callback<JSON_Person> {
-                    override fun onResponse(
-                        call: Call<JSON_Person>,
-                        response: Response<JSON_Person>
-                    ) {
-                        if (response.body() != null) {
+                override fun onResponse(
+                    call: Call<JSON_Person>,
+                    response: Response<JSON_Person>
+                ) {
+                    if (response.body() != null) {
 
-                            intent.putExtra(person_wca_id, users[position].user.wca_id)
-                            intent.putExtra(person_name, response.body()!!.person.name)
-                            intent.putExtra(person_avatar, response.body()!!.person.avatar.url)
-                            intent.putExtra(person_Gold, response.body()!!.medals.gold.toString())
-                            intent.putExtra(
-                                person_Silver,
-                                response.body()!!.medals.silver.toString()
-                            )
-                            intent.putExtra(
-                                person_Bronze,
-                                response.body()!!.medals.bronze.toString()
-                            )
-                            intent.putExtra(person_TM, response.body()!!.medals.total.toString())
-                            intent.putExtra(
-                                person_NR,
-                                response.body()!!.records.national.toString()
-                            )
-                            intent.putExtra(
-                                person_CR,
-                                response.body()!!.records.continental.toString()
-                            )
-                            intent.putExtra(person_WR, response.body()!!.records.world.toString())
-                            intent.putExtra(person_TR, response.body()!!.records.total.toString())
-                            intent.putExtra(
-                                person_Comps,
-                                response.body()!!.competition_count.toString()
-                            )
+                        intent.putExtra(person_wca_id, users[position].user.wca_id)
+                        intent.putExtra(person_name, response.body()!!.person.name)
+                        intent.putExtra(person_avatar, response.body()!!.person.avatar.url)
+                        intent.putExtra(person_Gold, response.body()!!.medals.gold.toString())
+                        intent.putExtra(
+                            person_Silver,
+                            response.body()!!.medals.silver.toString()
+                        )
+                        intent.putExtra(
+                            person_Bronze,
+                            response.body()!!.medals.bronze.toString()
+                        )
+                        intent.putExtra(person_TM, response.body()!!.medals.total.toString())
+                        intent.putExtra(
+                            person_NR,
+                            response.body()!!.records.national.toString()
+                        )
+                        intent.putExtra(
+                            person_CR,
+                            response.body()!!.records.continental.toString()
+                        )
+                        intent.putExtra(person_WR, response.body()!!.records.world.toString())
+                        intent.putExtra(person_TR, response.body()!!.records.total.toString())
+                        intent.putExtra(
+                            person_Comps,
+                            response.body()!!.competition_count.toString()
+                        )
 
-                            context.startActivity(intent)
+                        context.startActivity(intent)
 
-                        }
                     }
+                }
 
-                    override fun onFailure(call: Call<JSON_Person>, t: Throwable) {
-                        println("Failed")
-                    }
-                })
+                override fun onFailure(call: Call<JSON_Person>, t: Throwable) {
+                    println("Failed")
+                }
+            })
+
+
         }
 
     }
@@ -110,5 +112,4 @@ class ViewHolder (view: View) : RecyclerView.ViewHolder(view) {
     // Holds the TextView that will add each person to
     val PersonName = view.person_name
     val PersonAvatar = view.person_avatar
-    val Button = view.btn_ChangeAct
 }
